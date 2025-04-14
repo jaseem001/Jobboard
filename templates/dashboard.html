@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Employer Dashboard</h2>
+    <div class="row">
+        <!-- Job Listings Section -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Your Job Postings</h5>
+                </div>
+                <div class="card-body">
+                    {% if job_listings %}
+                        <ul class="list-group">
+                            {% for job in job_listings %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ job.title }}
+                                <span class="badge bg-secondary">{{ job.applications.count }} applicants</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No job postings yet. <a href="{% url 'post_job' %}">Post your first job</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Sidebar -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'post_job' %}" class="btn btn-primary w-100 mb-2">
+                        Post New Job
+                    </a>
+                    <a href="{% url 'company_profile' %}" class="btn btn-outline-secondary w-100">
+                        Edit Company Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

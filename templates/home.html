@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Job Listing</h1>
+<h2>Welcome to the Job Board</h2>
+<p>Find your dream job today!</p> 
+<form method="GET" action="{% url 'home' %}" class="search-filters">
+    <input type="text" name="q" placeholder="Search jobs....." value="{{ request.GET.q }}">
+    <select name="location">
+        <option value="">All Locations</option>
+        <option value="Thiruvananthapuram, Kerala">Thiruvananthapuram, Kerala</option>
+        <option value="Kochi, Kerala">Kochi, Kerala</option>
+        <option value="Calicut, Kerala">Calicut, Kerala</option>
+        <option value="Bangalore, Karnataka">Bangalore, Karnataka</option>
+        <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
+        <option value="Hyderabad, Thelankana">Hyderabad, Thelankana</option>
+        <option value="Mumbai, Maharashtra">Mumbai, Maharashtra</option>
+        <option value="New Delhi, Delhi">New Delhi, Delhi</option>
+        <option value="Remote">Remote</option>
+    </select>
+    <select name="job_type">
+        <option value="">All Job Types</option>
+        <option value="Full-time">Full-time</option>
+        <option value="Part-time">Part-time</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Internship">Internship</option>
+    </select>
+    <select name="experience_level">
+        <option value="">Experience Level</option>
+        <option value="Entry Level">Entry Level</option>
+        <option value="Mid Senior Level">Mid Senior Level</option>
+        <option value="Senior Level">Senior Level</option>
+    </select>
+    <button type="submit">Search</button>
+<div class="job-list">
+    
+    <div class="job-card">
+        <h3>{{ job.title }}</h3>
+        <p class="location">{{ job.location }}</p>
+        <p class="job-type">{{ job.job_type }}</p>
+        <p class="salary">{{ job.salary_range }}</p>
+        <p class="company name">{{ job.company_name }}</p>
+        <p>{{ job.description }}</p>
+        <!--<a href="#" class="apply-button">Apply Now</a>-->
+    </div>
+
+</div>
+<div class="job-list">
+    <div class="job-card">
+        <h3>Digital Marketing Specialist</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">50000 - 70000</p>
+        <p class="company name">Digital Grow</p>
+        <p>We are looking for a digital marketing specialist to join our team.</p>
+    </div>
+    
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Python Developer</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">60000 - 80000</p>
+        <p class="company name">Info Solutions</p>
+        <p>Join us as a python developer and work on exciting projects.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Data Scientist</h3>
+        <p class="location">Calicut, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">160000 - 180000</p>
+        <p class="company name">Info Solutions</p>
+        <p>We are hiring a data scientist to analyze and interpret complex data.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Machine Learning Engineer</h3>
+        <p class="location">Kollam, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">760000 - 980000</p>
+        <p class="company name">Wiz.io</p>
+        <p>Work on cutting-edge ML models and algorithms.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Frontend Developer</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">60000 - 80000</p>
+        <p class="company name">Info Solutions</p>
+        <p>We need a Frontend Developer to build responsive web applications.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Backend Developer</h3>
+        <p class="location"> Hyderabad, Thelankana </p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">60000 - 80000</p>
+        <p class="company name">RAD Info Services</p>
+        <p>Join our backend team develop scalable API's and services.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>UI/UX Designer</h3>
+        <p class="location">Remote</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">30000 - 50000</p>
+        <p class="company name">XYZ Designers</p>
+        <p>We are looking for a creative UI/UX Designer to improve user experiences.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>DevOps Engineer</h3>
+        <p class="location">Sydney, Australia</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">AUD 60000 - AUD 80000</p>
+        <p class="company name">Beyond.io</p>
+        <p>Work on CI/CO pipelines and cloud infrastructure.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Product Manager</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">30000 - 40000</p>
+        <p class="company name">Info Solutions</p>
+        <p>Lead product development and collaborate with cross-functional teams.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Content Writer</h3>
+        <p class="location">Remote</p>
+        <p class="job-type">Freelance</p>
+        <p class="salary">20000 - 28000</p>
+        <p class="company name">Growth Hacker Digital Marketing Agency</p>
+        <p>Write engaging content for our blog and marketing campaigns.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Sales Executive</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">10000 - 20000</p>
+        <p class="company name">Vivo Sales</p>
+        <p>Drive sales growth and build relationships with clients.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>HR Manager</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">30000 - 40000</p>
+        <p class="company name">Solvyz Technologies</p>
+        <p>Manage recruitment, employee relations, and HR policies.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Financial Analyst</h3>
+        <p class="location">Kochi, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">60000 - 90000</p>
+        <p class="company name">National Bank</p>
+        <p>Analyze financial data and provide insights for decision-making.</p>
+        
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    
+    <div class="job-card">
+        <h3>Mobile App Developer</h3>
+        <p class="location">Bangalore, Karnataka</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">360000 - 680000</p>
+        <p class="company name">XRZ Technologies</p>
+        <p>Develop mobile applications for iOS and Android platforms.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Cloud Architect</h3>
+        <p class="location">Chennai, Tamil Nadu</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">100000 - 2000000</p>
+        <p class="company name">CKX Technologies</p>
+        <p>Design and implement cloud solutions for our clients.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>SEO Specialist</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">30000 - 480000</p>
+        <p class="company name">Ghost Marketing Agency</p>
+        <p>Optimize website content for search engine and improve rankings.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Cybersecurity Analyst</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">160000 - 180000</p>
+        <p class="company name">Crust.io</p>
+        <p>Protect our systems and data from cyber threats.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Business Analyst</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">70000 - 90000</p>
+        <p class="company name">National Bank</p>
+        <p>Analyze business processes and recommended improvements.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Graphic Designer</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">20000 - 30000</p>
+        <p class="company name">Growth Agency</p>
+        <p>Create visually appealing designs for our marketing campaigns.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+    <div class="job-card">
+        <h3>Customer Support Representative</h3>
+        <p class="location">Thiruvananthapuram, Kerala</p>
+        <p class="job-type">Full-time</p>
+        <p class="salary">70000 - 90000</p>
+        <p class="company name">Growth Agency</p>
+        <p>Provide excellent customer service and resolve client inquiries.</p>
+    </div>
+    <div class="job-actions">
+        <button><a href="{% url 'applynow' %}" class="button applynow">Apply Now</a></button>
+        <button><a href="{% url 'call_employer' %}" class="button callemployer">Call Employer</a></button>
+        <button><a href="{% url 'save_for_later' %}" class="button saveforlater">Save for Later</a></button>
+    <div>
+
+
+</div>
+
+{% endblock %}

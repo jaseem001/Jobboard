@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My Job Postings</h1>
+<a href="{% url 'post_job' %}" class="btn btn-primary mb-3">Post a New Job</a>
+
+{% for job in jobs %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.company }} - {{ job.get_job_type_display }} - {{ job.location }}</h6>
+            <p class="card-text">{{ job.description | truncatewords:30 }}</p>
+            <a href="{% url 'job_detail' job.pk %}" class="btn btn-sm btn-primary">View</a>
+            <a href="#" class="btn btn-sm btn-warning">Edit</a>
+            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+            <span class="badge {% if job.is_active %}bg-success{% else %}bg-secondary{% endif %}">
+                {% if job.is_active %}Active{% else %}Inactive{% endif %}
+            </span>
+        </div>
+    </div>
+{% empty %}
+   <p>You haven't posted any jobs yet.</p>
+{% endfor %}
+{% endblock %}

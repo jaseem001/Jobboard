@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h1>{{ job.title }}</h1>
+        <h3>{{ job.company }}</h3>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Job Type:</strong> {{ job.get_job_type_display }}</p>
+        {% if job.salary %}<p><strong>Salary:</strong>{{ job.salary }}</p>{% endif %}
+
+        <h4>Description</h4>
+        <p>{{ job.requirements | linebreaks }}</p>
+
+        <p class="text-muted">Posted on {{ job.created_at | date:"F d, Y" }}</p>
+        {% if request.user == job.posted_by %}
+           <a href="#" class="btn btn-warning">Edit</a>
+           <a href="#" class="btn btn-danger">Delete</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

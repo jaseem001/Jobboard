@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="save-later-container">
+    <h1>Save for Later</h1>
+    <div class="confirmation">
+        <p>You have saved this job for later.</p>
+    </div>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'home' %}" class="button">Back to Job Search</a>
+    </div>
+</div>
+{% endblock %}

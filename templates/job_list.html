@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Job Listings</h1>
+{% if request.user.is_authenticated %}
+     <a href="{% url 'post_job' %}" class="btn btn-primary">Post a Job</a>
+     <a href="{% url 'my_jobs' %}" class="btn btn-secondary">My Jobs</a>
+{% endif %}
+
+{% for job in jobs %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.company }} - {{ job.get_job_type_display }} - {{ job.location }}</h6>
+            <p class="card-text">{{ job.description | truncatewords:30 }}</p>
+            <a href="{% url 'job_detail' job.pk %}" class="btn btn-sm btn-primary">View Details</a>
+        </div>
+    </div>
+{% empty %}
+    <p>No jobs available at the moment.</p>
+{% endfor %}
+{% endblock %}
+
+
+

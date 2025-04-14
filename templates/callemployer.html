@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="call-employer-container">
+    <h1>Call Employer</h1>
+    <p>contact the employer directly for more information.</p>
+
+    <button class="button call-employer" onclick="window.location.href='tel:+91 1234567890'">
+        Call Now
+    </button>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'home' %}" class="button">Back to Job Search</a>
+
+    </div>
+</div>
+  
+{% endblock %}
